@@ -1,0 +1,43 @@
+<md-dialog aria-label="Create item"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools navbar-default navbar-dialog">
+        <h2 class="text-dialog-header">Add new item</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-dialog-content class="navbar-dialog item-dialog-container">
+      <div class="md-dialog-content item-container">
+        <md-input-container>
+          <label>Name</label>
+          <input ng-model="newItem.name">
+        </md-input-container>
+
+        <md-input-container>
+          <label>Description</label>
+          <input ng-model="newItem.description">
+        </md-input-container>
+
+        <div flex-xs flex="30">
+          <md-checkbox ng-model="newItem.public" aria-label="Publicity">
+            Public
+          </md-checkbox>
+        </div>
+        <md-button>
+        <label for="file-input">Select</label>
+      </md-button>
+      <input id="file-input" type="file" ng-model="newItem.pictures_attributes"
+        name="file" base-sixty-four-input accept="image/*"
+        required maxsize="500" multiple style="display: none">
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <md-button ng-click="cancel()">
+        Cancel
+      </md-button>
+      <md-button ng-click="saveChanges()">
+        Save
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

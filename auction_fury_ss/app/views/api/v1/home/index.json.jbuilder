@@ -1,0 +1,1 @@
+json.rend @hash[:request]

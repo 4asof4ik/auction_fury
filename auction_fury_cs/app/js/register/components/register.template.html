@@ -1,0 +1,140 @@
+<div class="container register">
+  <h1 class="text-center" translate="Register">Register</h1>
+
+  <div  class="error-conection" ng-if="$ctrl.errors.no_connection"
+  translate="Noconnection">
+    Can't estabilish connection to server.
+  </div>
+
+  <form name="form" novalidate ng-submit="form.$valid && $ctrl.accept_policy( ctrl.user )" class="form-horizontal">
+
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label"
+      translate="FirstName">First Name</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" name="firstname" id="firstname" ng-model="ctrl.user.firstname" placeholder="{{'FirstName' | translate}}">
+      </div>
+
+      <label for="inputPassword3" class="col-sm-2 control-label"
+      translate="LastName">Last Name</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" name="lastname" id="lastname" ng-model="ctrl.user.lastname" placeholder="{{'LastName' | translate}}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" translate="*Email"></label>
+      <div class="col-sm-10">
+        <input
+                type="email"
+                class="form-control"
+                match="$ctrl.errors.taken_email"
+                not-match="true"
+                ng-pattern="$ctrl.emailRegEx"
+                name="email"
+                ng-model-options="{ updateOn: 'blur' }"
+                id="email"
+                ng-model="ctrl.user.email"
+                required=""
+                placeholder="Email"
+        >
+        <div ng-if="form.email.$touched || form.$submitted " ng-messages="form.email.$error" class="regerrordiv" role="alert">
+          <div ng-message="required" translate="reqEmail">Enter email</div>
+          <div ng-message="pattern" translate="InvEmail">Invalid email</div>
+          <div ng-message="match" translate="EmailExist">User with this email already exists </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label" translate="*Password">* Password</label>
+      <div class="col-sm-10">
+        <input
+                type="password"
+                required
+                class="form-control"
+                name="password"
+                ng-model-options="{ updateOn: 'blur' }"
+                ng-minlength="6"
+                id="password"
+                ng-model="ctrl.user.password"
+                placeholder="{{'Password' | translate}}"
+        >
+        <div ng-if="form.password.$touched || form.$submitted " ng-messages="form.password.$error" class="regerrordiv" role="alert">
+          <div ng-message="required" translate="ReqPassword">Enter password</div>
+          <div ng-message="minlength" translate="ShortPassword">Your password is too short</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label" translate="*PasswordConfirmation">* Password Confirmation</label>
+      <div class="col-sm-10">
+        <input
+                type="password"
+                required class="form-control"
+                name="password_confirmation"
+                match="ctrl.user.password"
+                ng-model-options="{ updateOn: 'blur' }"
+                id="password_confirmation"
+                ng-model="ctrl.user.password_confirmation"
+                placeholder="{{'PasswordConfirmation' | translate}}"
+        >
+        <div ng-show="form.password_confirmation.$touched || form.$submitted " ng-messages="form.password_confirmation.$error" class="regerrordiv" role="alert">
+          <div ng-message="required" translate="ConfirmPassword">Confirm your password</div>
+          <div ng-message="match" translate="NomathPassword">Password and password confirmation does not match</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label" translate="RegisterMeAs">* Register me as:</label>
+      <div class="col-sm-10 text-left">
+        <input
+                type="checkbox"
+                name="buyerCheckBox"
+                ng-model="ctrl.user.roles.buyer"
+                ng-required="!ctrl.user.roles.seller"
+        > Buyer <br />
+        <input
+                type="checkbox"
+                name="sellerCheckBox"
+                ng-model="ctrl.user.roles.seller"
+                ng-required="!ctrl.user.roles.buyer"
+        > Seller <br />
+
+        <div  ng-if="form.buyerCheckBox.$touched || form.sellerCheckBox.$touched || form.$submitted " ng-messages="form.buyerCheckBox.$error || form.sellerCheckBox.$error" class="regerrordiv" role="alert">
+          <div ng-message="required " translate="SelectOneRole">Select at least one role</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10 text-left">
+          <sub translate="RequiredFields"> Required fields are marked with <strong>*</strong></sub>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10 text-left">
+
+        <div class="regerrordiv" ng-if="$ctrl.errors.policy_rejected" translate="AcceptPolicy">
+          You should accept privacy policy to continue.
+        </div>
+
+        <button type="submit" class="btn btn-default"
+        translate="Register">Register</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="fullscreen-bg">
+  <video loop muted autoplay class="fullscreen-bg__video">
+    <source src="app/videos/purrificat.ogv" type='video/ogg; codecs="theora, vorbis"'>
+    <source src="app/videos/purrificat.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+    <source src="app/videos/purrificat.webm" type='video/webm; codecs="vp8, vorbis"'>
+  </video>
+</div>

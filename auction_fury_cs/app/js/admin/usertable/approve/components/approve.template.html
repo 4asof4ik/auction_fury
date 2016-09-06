@@ -1,0 +1,39 @@
+
+<h3 class="panel-title">Approve User's role</h3>
+<table st-table="$ctrl.user" class="table table-user-information">
+  <tbody>
+  <div class="alert alert-info" ng-if="$ctrl.responseMessage">
+    <strong>{{$ctrl.responseMessage}}</strong>
+  </div>
+    <tr>
+      <td>Id:</td>
+      <td >{{$ctrl.user.id}}</td>
+    </tr>
+    <tr>
+      <td translate="FirstName"></td>
+      <td id="firstname" name="firstname">
+        {{$ctrl.user.firstname}}</td>
+    </tr>
+    <tr>
+      <td translate="LastName"></td>
+      <td>{{$ctrl.user.lastname}}</td>
+    </tr>
+    <tr>
+      <td translate="Email"></td>
+      <td>{{$ctrl.user.email}}</td>
+    </tr>
+    <tr ng-repeat="assignment in $ctrl.user.assignments">
+      <td translate="Assignments"></td>
+      <td ng-click="$ctrl.ApproveUser($ctrl.user.id, $ctrl.user, 
+      (assignment.approved=true))">{{assignment.approved}}</td>
+      <td>{{assignment.role_id}}</td>
+    </tr>  
+    <tr>
+      <td translate="Activated"></td>
+      <td>{{$ctrl.user.activated}}</td>
+    </tr>  
+  </tbody>
+</table>
+  <a ng-click="$ctrl.backButton()" class="btn btn-primary" translate="Back"></a>
+
+          

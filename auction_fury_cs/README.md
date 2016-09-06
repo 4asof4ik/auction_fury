@@ -1,0 +1,2 @@
+-added angular-validation-match module. Usage: https://github.com/TheSharpieOne/angular-validation-match
+-added angular-messages module. Usage: https://docs.angularjs.org/api/ngMessages

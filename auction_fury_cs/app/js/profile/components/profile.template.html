@@ -1,0 +1,204 @@
+<div class="container" id="profileTemplate" >
+    <h1 class="page-header">Edit Profile</h1>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="text-center">
+                <img ng-src="{{$ctrl.user.avatar_url}}" class="avatar  img-thumbnail" alt="avatar">
+                <h6>Upload a different photo.</h6>
+                <input type="file" ng-model='$ctrl.user.profile_img' id="file"  name="file" base-sixty-four-input accept="image/*"
+                       required maxsize="500">
+            </div>
+        </div>
+        <!-- edit form column -->
+        <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+            <div class="alert alert-info" ng-hide="$ctr.responseMessage===''">
+                <strong>{{$ctrl.responseMessage}}</strong>
+            </div>
+            <h3>Personal information</h3>
+            <form class="form-horizontal" name="userForm" role="form" >
+
+                <div class="form-group"
+                     ng-class="{'has-error':userForm.firstname.$invalid &&
+                    userForm.firstname.$dirty}">
+                    <label class="col-lg-3 control-label">First name:</label>
+                    <div class="col-lg-8">
+                        <input id="firstname" name="firstname" class="form-control" ng-model="$ctrl.user.firstname"
+                               type="text" required>
+                        <span class="help-block has-error">
+                            <span ng-show="userForm.firstname.$error.required">
+                               First name is required.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{'has-error':userForm.lastname.$invalid &&
+                    userForm.lastname.$dirty}">
+                    <label class="col-lg-3 control-label">Last name:</label>
+                    <div class="col-lg-8">
+                        <input id="lastname" name="lastname" class="form-control" ng-model="$ctrl.user.lastname"
+                               type="text" required>
+                        <span class="help-block has-error">
+                            <span ng-show="userForm.lastname.$error.required">
+                               Last name is required.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{'has-error':userForm.email.$invalid &&
+                    userForm.email.$dirty}">
+                    <label class="col-lg-3 control-label">Email:</label>
+                    <div class="col-lg-8">
+                        <input id="email" name="email" class="form-control" ng-model="$ctrl.user.email"
+                               type="email" required>
+                        <span class="help-block has-error">
+                            <span ng-show="userForm.email.$error.required">Email is required.</span>
+                             <span ng-show="userForm.email.$error.email">Invalid email address.</span>
+                            <span ng-show="$ctrl.errors.email">This Email already exist in database.</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Prefered Language:</label>
+                    <div class="col-lg-8">
+                        <label class="radio-inline"><input type="radio" id="UKR" ng-model="$ctrl.user.profile.prefered_language"
+                                                           ng-checked="$ctrl.user.profile.prefered_language==='UKR'" value="UKR" name="prefered_language"/>UAH</label>
+                        <label class="radio-inline"><input type="radio" id="ENG" ng-model="$ctrl.user.profile.prefered_language"
+                                                           ng-checked="$ctrl.user.profile.prefered_language==='ENG'"  value="ENG"  name="prefered_language"/>EUR </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Prefered Currency:</label>
+                    <div class="col-lg-8">
+                        <label class="radio-inline"><input type="radio" id="UAH" ng-model="$ctrl.user.profile.prefered_currency"
+                                                           ng-checked="$ctrl.user.profile.prefered_currency==='UAH'" value="UAH" name="prefered_currency"/>UAH</label>
+                        <label class="radio-inline"><input type="radio" id="USD" ng-model="$ctrl.user.profile.prefered_currency"
+                                                           ng-checked="$ctrl.user.profile.prefered_currency==='EUR'"  value="EUR"  name="prefered_currency"/>EUR </label>
+                        <label class="radio-inline"><input type="radio" id="EUR" ng-model="$ctrl.user.profile.prefered_currency"
+                                                           ng-checked="$ctrl.user.profile.prefered_currency==='USD'"  value="USD"  name="prefered_currency"/>USD</label>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="container col-sm-6 col-xs-12">
+                        <div class="form-group" >
+                            <label class="col-lg-3 control-label">Country:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control"  id="country" ng-model="$ctrl.user.profile.country" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-sm-6 col-xs-12">
+                        <div class="form-group" >
+                            <label class="col-lg-3 control-label">State:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" id="state" ng-model="$ctrl.user.profile.state" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="container col-sm-6 col-xs-12">
+                        <div class="form-group" >
+                            <label class="col-lg-3 control-label">City:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" id="city" ng-model="$ctrl.user.profile.city" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-sm-6 col-xs-12">
+                        <div class="form-group" >
+                            <label class="col-lg-3 control-label">Street:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" id="street" ng-model="$ctrl.user.profile.street" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="container col-sm-6 col-xs-12">
+                        <div class="form-group" >
+                            <label class="col-lg-3 control-label">Zip Code:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" id="zip_code" ng-model="$ctrl.user.profile.zip_code" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-sm-6 col-xs-12">
+                        <div class="form-group" >
+                            <label class="col-lg-3 control-label">Office:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" id="office" ng-model="$ctrl.user.profile.office" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="container col-sm-6 col-xs-12">
+                        <div class="form-group" >
+                            <label class="col-lg-3 control-label">Phone:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" id="phone_skype" ng-model="$ctrl.user.profile.phone" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="container col-sm-6 col-xs-12">
+                        <div class="form-group" ng-class="{'has-error':userForm.password_confirmation.$error.match}">
+                            <label class="col-lg-3 control-label">Password:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" name="password" id="password" ng-model="$ctrl.user.password"
+                                       type="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container col-sm-6 col-xs-12">
+                        <div class="form-group" ng-class="{'has-error':userForm.password_confirmation.$error.match}" >
+                            <label class="col-lg-3 control-label">Confirm:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" name="password_confirmation" id="password_confirmation"
+                                       ng-model="$ctrl.user.password_confirmation" type="password" match="userForm.password">
+                            </div>
+                        </div>
+                    </div>
+                    <span class="help-block has-error">
+                        <span class="help-block has-error" ng-show="userForm.password_confirmation.$error.match">
+                            Fields not match!
+                        </span>
+                    </span>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input class="btn btn-primary" value="Save Changes" ng-click="$ctrl.submit()" type="button"
+                               ng-disabled="userForm.$invalid">
+                        <span></span>
+                        <input class="btn btn-default" style="width:70px" value="Cancel" type="reset" >
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

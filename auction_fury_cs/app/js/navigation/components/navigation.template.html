@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default" role="navigation" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div id="language">
+        <a ng-click="$ctrl.changeLanguage('ua')" translate="ButtonLangUA"></a>
+        <a ng-click="$ctrl.changeLanguage('en')" translate="ButtonLangEN"></a>
+      </div>
+      <button type="button" class="navbar-toggle"
+              ng-init="navCollapsed = true"
+              ng-click="navCollapsed = !navCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="main.home">
+        <img src="app/images/logo.png" alt="logo">
+      </a>
+    </div>
+    <div  class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" id="menuTop">
+      <ul class="nav navbar-nav navbar-left" id="leftMenu">
+        <li><a ui-sref="main.news" translate="News"></a></li>
+        <li><a ui-sref="main.about" translate="AboutUs"></a></li>
+        <li><a ui-sref="main.contact" translate="Contact"></a></li>
+        <li><a ui-sref="auctions">Auctions</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" id="rightMenu">
+        <li ng-if="$ctrl.isAuthenticated()"><span uib-dropdown on-toggle="toggled(open)">
+            <a href id="simple-dropdown" uib-dropdown-toggle>
+              <span><img class="avatar_img"/> </span>
+            </a>
+            <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+              <li >
+                <a ui-sref="profile">Profile</a>
+              </li>
+              <li>
+                <a ui-sref="main.home"  translate="LogOut" ng-click="$ctrl.logout()">Log out</a>
+              </li>
+            </ul>
+          </span>
+        </li>
+        <li><a ui-sref="main.login" ng-if="!$ctrl.isAuthenticated()"
+        translate="Login"></a></li>
+        <li><a ui-sref="register" ng-if="!$ctrl.isAuthenticated()"
+        translate="Register"></a></li>
+      </ul>
+    </div>
+    </div>
+    </div>
+</nav>

@@ -1,0 +1,41 @@
+<div class="container" style="padding-top: 50px;">
+  <h1 class="page-header">Items list</h1>
+
+  <div class="table-responsive">
+    <div class="col-md-12 col-sm-6 col-xs-12 personal-info">
+      <table st-table="$ctrl.items" st-safe-src="$ctrl.colection" class="table table-striped">
+        <thead>
+          <tr>
+            <th st-sort="name">Name</th>
+            <th>Description</th>
+            <th st-sort="public">Publicity</th>
+            <th st-sort="category">Category</th>
+            <th st-sort="user_id">Owner id</th>
+          </tr>
+          <tr>
+            <th colspan="5"><input st-search="" class="form-control" placeholder="Search" type="text"/></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="item in $ctrl.items">
+            <td><md-button class="md-primary md-hue-1" ng-click="$ctrl.showCurrent(item)">{{item.name}}</md-button></td>
+            <td>{{item.description}}</td>
+            <td>{{item.public ? "Public" : "Private"}}</td>
+            <td>{{item.category_id ? item.category_id : "Not attached"}}</td>
+            <td>{{item.user_id ? item.user_id : "Not attached"}}</td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colspan="5" class="text-center">
+              <div st-pagination="" st-items-by-page="8" st-displayed-pages=""></div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <md-button ng-click="$ctrl.showNew($ctrl.newItem)">NEW ITEM</md-button>
+</div>

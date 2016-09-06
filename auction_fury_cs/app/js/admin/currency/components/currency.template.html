@@ -1,0 +1,62 @@
+<h1>Currency</h1>
+<div class="container">
+  <div class="col-md-3">
+    <h2>List of currencies:</h2>
+    <table  class="table table-bordered text-center">
+      <tr>
+        <th class="text-center">#</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Active</th>
+      </tr>
+      <tr ng-repeat="currency in $ctrl.currrencies">
+        <td>{{$index + 1}}</td>
+        <td>{{currency.name}}</td>
+        <td>
+          <input type="checkbox">
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-8">
+    <h2>Currency Rates:</h2>
+    <p ng-if="$ctrl.is_update === true" class="bg-info">{{$ctrl.message}}</p>
+    <table  st-table="$ctrl.exchangeRates" st-safe-src="$ctrl.ratesCollection"
+            class="table table-bordered text-center">
+      <tr>
+        <th class="text-center">#</th>
+        <th class="text-center">Date</th>
+        <th st-sort="getters.from" class="text-center">From</th>
+        <th st-sort="getters.to" class="text-center">To</th>
+        <th st-sort="getters.rate" class="text-center">Rate</th>
+      </tr>
+      <tr>
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button"
+            ng-click="$ctrl.searchRates($ctrl.date) | date:'yyyy-mm-dd'">Search
+            </button>
+            <div>{{$ctrl.date}}</div>
+          </span>
+          <input type="date" class="form-control" placeholder="Search" ng-model="$ctrl.date">
+        </div>
+      </tr>
+      <tr ng-repeat="rate in $ctrl.exchangeRates">
+        <td>{{$index + 1}}</td>
+        <td>{{rate.date | date : "dd-MM-yyyy"}}</td>
+        <td>{{rate.from | uppercase}}</td>
+        <td>{{rate.to | uppercase}}</td>
+        <td>
+          <span ng-hide="editing" ng-click="editing = true">{{rate.rate}}</span>
+          <form ng-show="editing" ng-submit="editing = false">
+            <input type="number" step="0.0001" maxlength="7" ng-model="rate.rate" placeholder="New Rate" required>
+            <button>
+              <span ng-click="$ctrl.edit(rate)" class="glyphicon glyphicon-ok pull-right"></span>
+             </button>
+          </form>
+          <span ng-click="editing = true" ng-hide="editing"
+                class="glyphicon glyphicon-edit pull-right">  </span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

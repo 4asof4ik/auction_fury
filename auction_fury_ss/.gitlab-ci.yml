@@ -1,0 +1,10 @@
+#---------------gitlab ci
+before_script:
+  - bundle install
+  - mv config/database_example.yml config/database.yml
+  - bin/rails db:environment:set RAILS_ENV=gitlabci
+  - RAILS_ENV=gitlabci bundle exec rake db:create db:schema:load
+
+rspec:
+  script:
+    - RAILS_ENV=gitlabci bundle exec rspec

@@ -1,0 +1,45 @@
+<div class="container pad">
+  <h1 class="page-header">AUCTIONS LIST</h1>
+  <md-button class="btn1" ng-if="$ctrl.isAuthenticated()"  ui-sref="auctionform">Add new auction</md-button>
+    <div class="table-responsive">
+      <div class="col-md-12 col-sm-6 col-xs-12 personal-info">
+        <table st-table="$ctrl.auctions" class="table table-striped">
+          <thead>
+            <tr>
+              <th>NAME</th>
+              <th>AUCTION START</th>
+              <th>AUCTION END</th>
+              <th>STATE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr dir-paginate="auction in $ctrl.auctions | itemsPerPage: $ctrl.auctionsPerPage"
+             total-items="$ctrl.totalAuctions" current-page="$ctrl.currentp" ng-if="auction.id != 1">
+              <td <md-button class="md-primary md-hue-1" ui-sref="currentauction({currentauctionID: auction.id})">{{auction.name}}</md-button></td></td>
+              <td>{{auction.start}}</td>
+              <td>{{auction.finish}}</td>
+              <td>
+                <div ng-if="auction.state == 'closed'">
+                  <span class="label label-danger">{{auction.state}}</span>
+                </div>
+                <div ng-if="auction.state == 'draft'">
+                  <span class="label label-warning">{{auction.state}}</span>
+                </div>
+                <div ng-if="auction.state == 'production'">
+                  <span class="label label-success">{{auction.state}}</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5" class="text-center">
+                <dir-pagination-controls on-page-change="$ctrl.pageChanged($ctrl.currentp)">
+                </dir-pagination-controls>
+              </td>
+           </tr>
+          </tfoot>
+        </table>
+      </div>
+  </div>
+</div>

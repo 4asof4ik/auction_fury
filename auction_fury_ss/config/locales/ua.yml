@@ -1,0 +1,390 @@
+ua:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Виникли помилки: %{errors}'
+        restrict_dependent_destroy:
+          has_one: "Неможливо видалити запис, так як існує залежність: %{record}"
+          has_many: "Неможливо видалити запис, так як існують залежності: %{record}"
+  date:
+    abbr_day_names:
+    - нд.
+    - пн.
+    - вт.
+    - ср.
+    - чт.
+    - пт.
+    - сб.
+    abbr_month_names:
+    -
+    - січ.
+    - лют.
+    - бер.
+    - квіт.
+    - трав.
+    - черв.
+    - лип.
+    - серп.
+    - вер.
+    - жовт.
+    - лист.
+    - груд.
+    day_names:
+    - неділя
+    - понеділок
+    - вівторок
+    - середа
+    - четвер
+    - п'ятниця
+    - субота
+    formats:
+      default: "%d.%m.%Y"
+      long: "%d %B %Y"
+      short: "%d %b"
+    month_names:
+    -
+    - Січня
+    - Лютого
+    - Березня
+    - Квітня
+    - Травня
+    - Червня
+    - Липня
+    - Серпня
+    - Вересня
+    - Жовтня
+    - Листопада
+    - Грудня
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        few: близько %{count} години
+        many: близько %{count} годин
+        one: близько %{count} година
+        other: близько %{count} години
+      about_x_months:
+        few: близько %{count} місяців
+        many: близько %{count} місяців
+        one: близько %{count} місяця
+        other: близько %{count} місяця
+      about_x_years:
+        few: близько %{count} років
+        many: близько %{count} років
+        one: близько %{count} року
+        other: близько %{count} року
+      almost_x_years:
+        few: майже %{count} років
+        many: майже %{count} років
+        one: майже %{count} роки
+        other: майже %{count} років
+      half_a_minute: півхвилини
+      less_than_x_minutes:
+        few: менше %{count} хвилин
+        many: менше %{count} хвилин
+        one: менше %{count} хвилини
+        other: менше %{count} хвилини
+      less_than_x_seconds:
+        few: менше %{count} секунд
+        many: менше %{count} секунд
+        one: менше %{count} секунди
+        other: менше %{count} секунди
+      over_x_years:
+        few: більше %{count} років
+        many: більше %{count} років
+        one: більше %{count} року
+        other: більше %{count} року
+      x_days:
+        few: "%{count} дні"
+        many: "%{count} днів"
+        one: "%{count} день"
+        other: "%{count} дня"
+      x_minutes:
+        few: "%{count} хвилини"
+        many: "%{count} хвилин"
+        one: "%{count} хвилина"
+        other: "%{count} хвилини"
+      x_months:
+        few: "%{count} місяці"
+        many: "%{count} місяців"
+        one: "%{count} місяць"
+        other: "%{count} місяця"
+      x_seconds:
+        few: "%{count} секунди"
+        many: "%{count} секунд"
+        one: "%{count} секунда"
+        other: "%{count} секунди"
+    prompts:
+      day: День
+      hour: Година
+      minute: Хвилина
+      month: Місяць
+      second: Секунда
+      year: Рік
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: має бути прийнятий
+      blank: не може бути пустим
+      confirmation: не збігається з підтвердженням
+      empty: не може бути порожнім
+      equal_to: має дорівнювати %{count}
+      even: має бути парним
+      exclusion: зарезервовано
+      greater_than: має бути більше ніж %{count}
+      greater_than_or_equal_to: має бути більше ніж або дорівнювати %{count}
+      inclusion: не включено до переліку
+      invalid: недійсний
+      less_than: має бути менше ніж %{count}
+      less_than_or_equal_to: має бути менше ніж або дорівнювати %{count}
+      not_a_number: не число
+      not_an_integer: не э цілим числом
+      odd: має бути непарним
+      taken: вже зайнятий
+      too_long:
+        few: занадто довгий (максимум %{count} знаки)
+        many: занадто довгий (максимум %{count} знаків)
+        one: занадто довгий (максимум %{count} знак)
+        other: занадто довгий (максимум %{count} знаку)
+      too_short:
+        few: занадто короткий (мінімум %{count} знаки)
+        many: занадто короткий (мінімум %{count} знаків)
+        one: занадто короткий (мінімум %{count} знак)
+        other: занадто короткий (мінімум %{count} знаку)
+      wrong_length:
+        few: неправильна довжина (має бути %{count} знаки)
+        many: неправильна довжина (має бути %{count} знаків)
+        one: неправильна довжина (має бути %{count} знак)
+        other: неправильна довжина (має бути %{count} знаку)
+    template:
+      body: 'Помилки виявлено в таких полях:'
+      header:
+        few: "%{model} не збережено через %{count} помилки"
+        many: "%{model} не збережено через %{count} помилок"
+        one: "%{model} не збережено через %{count} помилку"
+        other: "%{model} не збережено через %{count} помилки"
+  helpers:
+    select:
+      prompt: 'Оберіть: '
+    submit:
+      create: Створити %{model}
+      submit: Зберегти %{model}
+      update: Зберегти %{model}
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: грн.
+    format:
+      delimiter: " "
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            few: Мільярдів
+            many: Мільярдів
+            one: Мільярд
+            other: Мільярдів
+          million:
+            few: Мільйонів
+            many: Мільйонів
+            one: Мільйон
+            other: Мільйонів
+          quadrillion:
+            few: Квадрильйонів
+            many: Квадрильйонів
+            one: Кквадрильйон
+            other: Квадрильйонів
+          thousand:
+            few: Тисяч
+            many: Тисяч
+            one: Тисяча
+            other: Тисяч
+          trillion:
+            few: Трильйонів
+            many: Трильйонів
+            one: Трильйон
+            other: Трильйонів
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            few: байти
+            many: байтів
+            one: байт
+            other: байту
+          gb: ГБ
+          kb: кБ
+          mb: МБ
+          tb: ТБ
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " та "
+      two_words_connector: " і "
+      words_connector: ", "
+  time:
+    am: до полудня
+    formats:
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      long: "%d %B %Y, %H:%M"
+      short: "%d %b, %H:%M"
+    pm: по полудні
+    devise:
+    confirmations:
+      confirmed: "Вашу email адресу було успішно підтверджено"
+      send_instructions: "За декілька хвилин на вашу електронну пошту буде відправлено інструкції для підтвердженя вашої поштової скриньки"
+      send_paranoid_instructions: "Якщо ваша поштова скринька існує в нашій базі даних то за деклька хвилин ви отримаєте лист з іструкціями для підтвердженя вашої поштової скриньки"
+    failure:
+      already_authenticated: "Ви вже залоговані"
+      inactive: "Ваш аккаунт ще не активований"
+      invalid: "Invalid %{authentication_keys} or password."
+      locked: "Ваш аккаунт заблокований"
+      last_attempt: "У вас є ще одна спроба перед тим як ваш аккаун буде заблоковано."
+      not_found_in_database: "Invalid %{authentication_keys} or password."
+      timeout: "Ваша сесія закинчілася, Будьласка зайдіть в ваш аккаунт щераз"
+      unauthenticated: "Ви мусете зайти або вийті з вашого аккаунту щоб продовжити"
+      unconfirmed: "Ви змушені підтвердити вашу електрону адресу щоб продовжити."
+    mailer:
+      confirmation_instructions:
+        subject: "Інструкції для підтвердженя"
+      reset_password_instructions:
+        subject: "Інструкції для скидання паролю"
+      unlock_instructions:
+        subject: "Інструкція по розблокуванню"
+      password_change:
+        subject: "Зміна паролю"
+    omniauth_callbacks:
+      failure: "Незмога аутитифікувати вас з %{kind} тому що \"%{reason}\"."
+      success: "Успіша аутитифікація з %{kind} аккаунту."
+    passwords:
+      no_token: "Ви неможете зайти на цю сторінку якщо ви не прийшли з поштової скринки по зміні паролю.Якщо ж ви прийшли з зміни паролю будласка впевніться що ви використовуєте правильну URL адрессу."
+      send_instructions: "Ви отримаєте поштою інструкції проте як змінити пароль за декілька хвилин."
+      send_paranoid_instructions: "Якщо ваша поштова скринька вже знаходиться в нашій базі, ви отримаєте лінк по відновленню паролю за декілька хвилин."
+      updated: " Ваш пароль успішно був змінений.Ви тепер зайшли в систему."
+      updated_not_active: "Ваш пароль був успішно зміненийy."
+    registrations:
+      destroyed: "ПаПа! Ваш акаунт був успішно відмінений.Ми надіймся на як скорішу зустріч."
+      signed_up: "Привіт! Ви успішно зайшли в систему."
+      signed_up_but_inactive: "Ви успішно зараєстровані.Але ми неможемо автоматично залоговати вас в систему томущо ваш акаунт небуло активовано."
+      signed_up_but_locked: "Ви успішно зараєстровані.Але ми неможемо автоматично залоговати вас в систему томущо ваш акаунт заблокований."
+      signed_up_but_unconfirmed: "Повідомлення з лінком на пітвердження було відправлено на вашу поштову скриньку.Будласка перейдіть по лінку щоб активувати ваш аккаунт."
+      update_needs_confirmation: "Ваш аккаунт було успішно обновлено але нам потрібно підтвердити вашу поштову скриньку. Будласка перевірте вашу електрону скриньку і слідуйте лінку щоб підтвердити вашу нову поштову адресу."
+      updated: "Ваш аккаунт було успішно обновлено."
+    sessions:
+      signed_in: "Ви успішно зайшли в систему."
+      signed_out: "Ви успішно вийшли з системи."
+    unlocks:
+      send_instructions: "Ви отримаєте лист з інструкціями як розблокувати ваш аккаунт за деклька хвилин."
+      send_paranoid_instructions: "Якщо ваш аккаунт існує, ви отримаєте інструкції з інструкціями по розблокуваню за декілька хвилин."
+      unlocked: "Ваш аккаунт був розблоковано успішнy. Будласка зайдіть в систему щоб продовжити."
+  errors:
+    messages:
+      already_confirmed: "вже було пітвердженноwas, будласка попробуйте зайти в систему"
+      confirmation_period_expired: "потрібно підтвертиди з %{period}, будласка запросіть інший"
+      expired: " вийшов з дати, будласка запросіть інший"
+      not_found: "не знайдено"
+      not_locked: "не було заблоковано"
+      not_saved:
+        one: "1 помилка забороняє %{resource} бути збережиним:"
+        other: "%{count} помилки забороняютьце %{resource} від бути збережиним:"
+  Dashboard: Дашборд Адміністратора
+  UsersTable: Таблиця Юзерів
+  Category: Категорії
+  Currency: Валюта
+  FirstName: Імя
+  LastName: Прізвище
+  Search: Пошук
+  Edit: Редагувати
+  Delete: Видалити
+  Seller: Продавець
+  Buyer: Покупець
+  News: Новини
+  Back: Назад
+  Country: 'Країна:'
+  State: 'Область:'
+  City: 'Країна:'
+  Street: 'Вулиця:'
+  ZipCode: 'Поштовий індекс:'
+  Office: 'Офіс:'
+  Phone: 'Телефон:'
+  Confirm: 'Пітвердження:'
+  FieldsNotMatch: Поля незбігаються!
+  ShortPassword: Ваш пароль закороткий
+  reqEmail: Ведіть вашу поштову скриньку
+  InvEmail: Невірна поштова скринька
+  EmailExist: Користувач з такою поштовою скринькою вже існує
+  ThanksForRegister: Дякуємо за реєстрацію
+  AboutUs: Про нас
+  Contact: Контакти
+  Login: Логін
+  Password: Пароль
+  "*Password": "*Пароль"
+  ReqPassword: Ведіть пароль
+  Register: Реєстрація
+  LogOut: Вихід
+  PreferedLanguage: 'Вибрана мова:'
+  PersonalInfo: Персональна інформація
+  UpdateSuccess: Успішне обновлення
+  UploadPhoto: Загрузити іншу фотографію.
+  RequireEmail: Електрона скринька є обовязковим.
+  WrongToken: " Неправильний токен пітвердження будласка звяжіться з нами за більш детальною інформацією."
+  EditProfile: Редагувати профаєл
+  RequiredFields: Обовязкові поля для заповнення
+  RegisterMeAs: "* Зараєструватися як:"
+  IssueWithConnection: Неможливо зєднатися з сервером
+  NoMathPassword: Пароль і пітвердження паролю не збігаються
+  ConfirmPassword: Пітвердіть ваш праоль
+  "*PasswordConfirmation": "*Підтвердження паролю"
+  PasswordConfirmation: Підтвердження паролю
+  AcceptPolicy: " Ви маєте пітвердити політику приватності щоб продовжити"
+  SellectOneRolle: Виберіть хоча б одну роль
+  LearnMore: Дізнатися більше
+  RememberMe: Запам'ятай мене
+  Ukrainian: Українська
+  English: Англійська
+  ConPasword: Пітвердження паролю
+  PreferdCurrency: Вибрана Валюта
+  errorMessagePassword: Невірний імейл або пароль
+  Email: Електрона Скринька
+  "*Email": "*Електрона Скринька"
+  RequireFirstName: імя є обовязковим.
+  RequireLastName: прізвище є обовязковим.
+  Noconnection: Не можливо зєднатися з сервером.
+  Activated: Активований
+  Euro: Євро
+  Usd: Долар
+  UAH: грн
+  EUR: євро
+  USD: долар
+  ua: укр
+  en: анг
+  ButtonLangEn: англійська
+  ButtonLangUa: українська
+  WelcomeMessage: Вітаємо на Аукціоні Фюрі
+  MainPageMessage: Дана аплікація була створена як тендерний аукціон, де ви можете взяти участь в торгах і заключаті договори з поставником.
+  PleaseConfirm: Будласка пітвердіть ваш аккаунт. Імейл з пітвердженням було відправлено на вашу поштову скриньку. Слідуйте по лінку в імейлі для того щоб пітвердити ваш аккаунт. 

@@ -1,0 +1,39 @@
+<div class="alert alert-info" ng-if="$ctrl.responseMessage">
+    <strong>{{$ctrl.responseMessage}}</strong>
+</div>
+
+<table st-table="$ctrl.users"  st-safe-src="$ctrl.usersCollection" class="table table-striped">
+  <th ng-model="id" colspan="5"><input st-search="" class="form-control" placeholder="current page search ..." type="text"/></th>
+</tr>
+  <tr>
+    <th st-sort="id">id</th>
+    <th st-sort="firstname" translate="FirstName"></th>
+    <th st-sort="lastname" translate="LastName"></th>
+    <th st-sort="email" translate="Email"></th>
+    <th translate="Activated"></th>
+    <th translate="Edit"></th>
+    <th translate="Delete"></th>
+  </tr>
+  <tbody>
+    <tr dir-paginate="user in $ctrl.users | itemsPerPage: $ctrl.usersPerPage | filter:id" total-items="$ctrl.totalUsers" current-page="$ctrl.current_page"
+    ng-if="user.id != 1">
+      <td>{{user.id}}</td>
+      <td>{{user.firstname}}</td>
+      <td>{{user.lastname}}</td>
+      <td>{{user.email}}</td>
+      <td><a ui-sref="dashboard.approve" ng-click="$ctrl.getUser(user.id)" class="btn btn-default" translate="Edit"></a></td>
+      <td> <button type="button"
+      ng-click="$ctrl.deleteUser(user.id)"
+        class="btn btn-sm btn-danger">
+        <i class="glyphicon glyphicon-remove-circle" >
+        </i>
+      </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<dir-pagination-controls on-page-change="
+  $ctrl.pageChanged($ctrl.current_page)"
+  direction-links="true"
+  boundary-links="true">
+</dir-pagination-controls>

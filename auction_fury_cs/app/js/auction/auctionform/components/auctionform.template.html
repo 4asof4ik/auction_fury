@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+    <md-toolbar id="toolbar">
+      <div class="md-toolbar-tools">
+        <h2>Add new auction</h2>
+      </div>
+    </md-toolbar>
+    <form role="form" name="myForm" ng-submit="$ctrl.submit()">
+      <md-input-container class="md-block">
+        <label>NAME</label>
+          <input ng-model="$ctrl.auction.name"
+                 name="Name"
+                 class="md-headline"
+                 ng-minlength="4"
+                 ng-maxlength="50"
+                 required>
+          <div ng-messages="myForm.Name.$error" style="color:maroon" role="alert">
+            <div ng-message="required">You did not enter a field</div>
+              <div ng-message="minlength">Your field is too short</div>
+                <div ng-message="maxlength">Your field is too long</div>
+          </div>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>START TIME</label>
+        <input type="datetime-local"
+               class="md-headline"
+               name="start"
+               ng-model="$ctrl.auction.start"
+               min = "{{$ctrl.getDatetime | date: 'yyyy-MM-ddTHH:mm'}}"
+               required>
+        <div ng-messages="myForm.start.$error" style="color:maroon" role="alert">
+          <div ng-message="required">You did not enter a field</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>END TIME</label>
+        <input type="datetime-local"
+               class="md-headline"
+               name="finish"
+               ng-model="$ctrl.auction.finish"
+               min = "{{$ctrl.getDatetime | date: 'yyyy-MM-ddTHH:mm'}}"
+               required>
+        <div ng-messages="myForm.finish.$error" style="color:maroon" role="alert">
+          <div ng-message="required">You did not enter a field</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>DESCRIPTION</label>
+        <textarea ng-model="$ctrl.auction.description"
+                  class="md-subhead"
+                  name="description"
+                  rows="10"
+                  ng-minlength="10"
+                  ng-maxlength="500"
+                  required></textarea>
+        <div ng-messages="myForm.description.$error" style="color:maroon" role="alert">
+            <div ng-message="minlength">Your field is too short</div>
+              <div ng-message="maxlength">Your field is too long</div>
+                <div ng-message="required">You did not enter a field</div>
+        </div>
+      </md-input-container>
+      <div class="form-group">
+        <input type="submit" class="btn btn-success btn-lg btn-block" value="CREATE AUCTION">
+      </div>
+    </form>
+    <button ui-sref="auctions" class="btn btn-danger btn-lg btn-block" >CANCEL</button>
+      <br>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+
